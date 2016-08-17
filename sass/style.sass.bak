@@ -1,0 +1,155 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+*
+	box-sizing: border-box
+
+body
+	background-color: #EEE
+	height: 100vh
+	font: 400 0.875rem/1.5 "Open Sans", sans-serif
+
+$thewidth: 0.3
+
+ul
+	list-style-type: none
+	padding: 1rem
+	li
+		display: block
+		width: percentage($thewidth)
+		.over-l
+			border-radius: 0.2rem
+			position: relative
+			display: inline-block
+			float: left
+			width: 50%
+			height: 1.5rem
+			opacity: 0.2
+			z-index: 10
+			cursor: pointer
+			transition: background-color 0.5s ease-in-out
+			&:hover
+				background-color: blue
+			&:hover ~ .text
+				margin-left: 0 !important
+		.over-r
+			position: relative
+			display: inline-block
+			width: 50%
+			height: 1.5rem
+			opacity: 0.2
+			z-index: 10
+			cursor: pointer
+			transition: background-color 0.5s ease-in-out
+			&:hover
+				background-color: blue
+			&:hover ~ .text
+				margin-left: percentage($thewidth/2) !important
+		.text
+			transition: margin-left 0.5s ease-in-out
+			margin-left: percentage($thewidth/4)
+			width: percentage($thewidth/2)
+			text-align: center
+			line-height: 1.5rem
+			position: absolute
+			margin-top: -1.7rem
+
+
+$colwidth: 6rem
+$colpad: 1.5rem
+
+$dark: #34314c
+$blu: #47b8e0
+$light: #FFF
+
+.navcol
+	background-color: #fff
+	width: $colwidth
+	height: 100%
+	padding-top: 1.5rem
+	padding-bottom: 1.5rem
+	.navitem
+		height: $colwidth - $colpad
+		width: $colwidth
+		position: relative
+		margin-top: $colpad
+		.navr
+			border-radius: ($colwidth - $colpad) / 2
+			width: $colwidth - $colpad
+			height: $colwidth - $colpad
+			background-color: $dark
+			position: absolute
+			right: $colpad / 2
+			transition: all 0.2s cubic-bezier(0.42, 0, 0.22, 1.18)
+			top: 0
+		.navl
+			border-radius: ($colwidth - $colpad) / 2
+			width: $colwidth - $colpad
+			height: $colwidth - $colpad
+			background-color: $dark
+			position: absolute
+			left: $colpad / 2
+			transition: all 0.2s cubic-bezier(0.42, 0, 0.22, 1.18)
+			top: 0
+		.over-l
+			position: relative
+			display: inline-block
+			float: left
+			width: 50%
+			height: $colwidth - $colpad
+			opacity: 0.2
+			z-index: 10
+			cursor: pointer
+			&:hover ~ .navr
+				margin-left: 0 !important
+				right: 0 !important
+				width: $colpad / 2
+				border-top-right-radius: 0
+				border-bottom-right-radius: 0
+			&:hover ~ .navl
+				margin-left: 0 !important
+				left: 0 !important
+				width: $colwidth - $colpad
+				border-bottom-left-radius: 0
+				border-top-left-radius: 0
+				border-top-right-radius: $colpad / 2
+				border-bottom-right-radius: $colpad / 2
+				background-color: $blu
+			&:hover ~ .text
+				left: ($colwidth / 8)
+		.over-r
+			position: relative
+			display: inline-block
+			width: 50%
+			height: $colwidth - $colpad
+			opacity: 0.2
+			z-index: 10
+			cursor: pointer
+			&:hover ~ .navr
+				margin-left: 0 !important
+				right: 0 !important
+				width: $colwidth - $colpad
+				border-bottom-right-radius: 0
+				border-top-right-radius: 0
+				border-top-left-radius: $colpad / 2
+				border-bottom-left-radius: $colpad / 2
+				background-color: $blu
+			&:hover ~ .navl
+				margin-left: 0 !important
+				left: 0 !important
+				width: $colpad / 2
+				border-top-left-radius: 0
+				border-bottom-left-radius: 0
+			&:hover ~ .text
+				left: ($colwidth / 4) + ($colwidth / 8)
+		.text
+			position: absolute
+			color: $light
+			transition: left 0.2s ease-in-out
+			width: $colwidth / 2
+			text-align: center
+			font-weight: bold
+			font-size: $colwidth / 4
+			top: 0
+			line-height: $colwidth - $colpad
+			vertical-align: center
+			left: ($colwidth / 4)

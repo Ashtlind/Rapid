@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="/app/app.js"></script>
+  </head>
+  <body ng-app ng-init="opening = true">
+    <div class="maincont">
+      <div class="leftside">
+        <div class="topnav">
+          <div class="topnavcont">
+            <button class="iconbtn blu">
+              <div class="material-icons">filter_list</div>
+            </button>
+            <button class="iconbtn blu">
+              <div class="material-icons">vertical_align_center</div>
+            </button>
+            <button class="iconbtn blu">
+              <div class="material-icons">view_day</div>
+            </button>
+            <div class="queuename">Queue / <span class="currentname">Ashton Lind</span></div>
+          </div>
+        </div>
+        <div class="topnavunder">
+          <div class="metabtn">3 Selected</div>
+          <div icon="call_received" class="metabtn">Take</div>
+          <div icon="keyboard_return" class="metabtn">Join</div>
+          <div icon="keyboard_tab" class="metabtn">Assign</div>
+          <div icon="call_merge" class="metabtn">Merge</div>
+          <div icon="call_split" class="metabtn">Split</div>
+        </div>
+        <div class="sidecont">
+          <div class="listitmcont">
+            <div class="listitm red checked">
+              <div class="statushv"></div>
+              <div class="status"></div>
+              <div class="text">
+                <div class="title">This is the job's title!</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="comment" class="meta">1</div>
+                  <div icon="attach_file" class="meta">2</div>
+                  <div icon="person_outline" class="meta">The Owner</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-repeat="i in [{n:1,s:false,o:true},{n:2,s:false,o:false},{n:3,s:false,o:false},{n:4,s:false,o:false}]" ng-class="{open : i.o}" class="listitmcont">
+            <div ng-class="{checked : i.s}" class="listitm red">
+              <div ng-click="i.s = !i.s" class="statushv"></div>
+              <div ng-click="i.s = !i.s" class="status"></div>
+              <div ng-click="i.o = !i.o" class="text">
+                <div class="title">This is the job's title that describes an issue!</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="comment" class="meta">1</div>
+                  <div icon="attach_file" class="meta">2</div>
+                  <div icon="person_outline" class="meta">The Owner</div>
+                </div>
+              </div>
+            </div>
+            <div class="metabtns">
+              <div icon="call_received" class="metabtn">Take</div>
+              <div icon="keyboard_return" class="metabtn">Join</div>
+              <div icon="keyboard_tab" class="metabtn">Assign</div>
+              <div icon="map" class="metabtn">Locate</div>
+              <div icon="call_merge" class="metabtn">Merge</div>
+              <div icon="call_split" class="metabtn">Split</div>
+            </div>
+            <div class="respcont">
+              <div class="response usr">
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius euismod venenatis. Nullam consectetur eget augue non ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris feugiat pellentesque molestie. Aliquam erat volutpat. Aenean vulputate tellus at eleifend faucibus. Aenean ornare leo nec efficitur commodo. Curabitur nisi massa, suscipit eu urna id, placerat cursus est. Nullam dapibus ut lectus et euismod. Vivamus vulputate, enim sed ultricies molestie.</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="email" class="meta">Via Email</div>
+                  <div class="user">Old mate</div>
+                </div>
+              </div>
+              <div class="usrph"><img src="https://randomuser.me/api/portraits/men/41.jpg"></div>
+            </div>
+            <div class="respcont">
+              <div class="response stat">
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                </div>
+                <div class="text">This is a status change</div>
+              </div>
+              <div class="usrph"></div>
+            </div>
+            <div class="respcont">
+              <div class="response usr attach">
+                <div class="text">This is some text about an attachment</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="email" class="meta">Via Email</div>
+                  <div class="user">Old mate</div>
+                </div>
+              </div>
+              <div class="usrph"><img src="https://randomuser.me/api/portraits/men/41.jpg"></div>
+            </div>
+            <div class="contcont">
+              <div class="createresponse">
+                <textarea placeholder="Add your response here"></textarea>
+                <div class="createresponsebuttons">
+                  <button icon="comment" class="btn blu icon">Send Response</button>
+                  <button class="dark iconbtn">
+                    <div class="material-icons">attach_file</div>
+                  </button>
+                  <button class="dark iconbtn">
+                    <div class="material-icons">contacts</div>
+                  </button>
+                  <button class="dark iconbtn">
+                    <div class="material-icons">visibility_off</div>
+                  </button>
+                  <button class="dark iconbtn">@</button>
+                </div>
+              </div>
+            </div>
+            <div class="contcont">
+              <button icon="comment" class="btn blu icon">Add Response</button>
+              <button icon="attach_file" class="btn icon">Attach File</button>
+            </div>
+          </div>
+          <div class="listitmcont">
+            <div class="listitm">
+              <div class="statushv"></div>
+              <div class="status"></div>
+              <div class="text">
+                <div class="title">This is the job's title!</div>
+                <div class="metarow">
+                  <div class="meta time">2 hours ago</div>
+                  <div class="meta resp">1</div>
+                  <div class="meta attach">2</div>
+                  <div class="meta own">The Owner</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="listitmcont">
+            <div class="listitm dark">
+              <div class="statushv"></div>
+              <div class="status"></div>
+            </div>
+          </div>
+          <div class="listitmcont">
+            <div class="listitm yelw checked">
+              <div class="statushv"></div>
+              <div class="status"></div>
+            </div>
+          </div>
+          <div class="listitmcont"> 
+            <div class="listitm">
+              <div class="statushv"></div>
+              <div class="status"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navcol">
+        <div class="navlogo fa fa-rocket fa-4x"></div>
+        <div class="navitem photo">
+          <div class="photoover">
+            <div class="usrset fa fa-cog fa-2x"></div>
+            <div class="logout fa fa-sign-out fa-2x"></div>
+          </div><img src="https://randomuser.me/api/portraits/men/41.jpg">
+        </div>
+        <div class="navitem">
+          <div class="over overl"></div>
+          <div class="over overr"></div>
+          <div class="nav navr"></div>
+          <div class="nav navl"></div>
+          <div icon="search" class="text icon"></div>
+        </div>
+        <div class="navitem">
+          <div class="over overl"></div>
+          <div class="over overr"></div>
+          <div class="nav navr"></div>
+          <div class="nav navl"></div>
+          <div icon="notifications" class="text icon"></div>
+        </div>
+        <div class="navhead">Queues</div>
+        <div class="navitem">
+          <div class="over overl"></div>
+          <div class="over overr"></div>
+          <div class="counter">22</div>
+          <div class="nav navr"></div>
+          <div class="nav navl"></div>
+          <div class="text">NA</div>
+        </div>
+        <div class="navitem activer">
+          <div class="over overl"></div>
+          <div class="over overr"></div>
+          <div class="counter">2</div>
+          <div class="nav navr"></div>
+          <div class="nav navl"></div>
+          <div class="text">AL</div>
+        </div>
+        <div class="navitem activel">
+          <div class="over overl"></div>
+          <div class="over overr"></div>
+          <div class="counter">2</div>
+          <div class="nav navr"></div>
+          <div class="nav navl"></div>
+          <div class="text">GG</div>
+        </div>
+        <div class="navitem">
+          <div class="over overl"></div>
+          <div class="over overr"></div>
+          <div class="counter">1</div>
+          <div class="nav navr"></div>
+          <div class="nav navl"></div>
+          <div class="text">NA</div>
+        </div>
+        <div class="navitem">
+          <div class="over overl"></div>
+          <div class="over overr"></div>
+          <div class="counter">5</div>
+          <div class="nav navr"></div>
+          <div class="nav navl"></div>
+          <div class="text">NA</div>
+        </div>
+      </div>
+      <div class="rightside">
+        <div class="topnav">
+          <div class="topnavcont">
+            <button class="iconbtn blu">
+              <div class="material-icons">filter_list</div>
+            </button>
+            <button class="iconbtn blu">
+              <div class="material-icons">vertical_align_center</div>
+            </button>
+            <button class="iconbtn blu">
+              <div class="material-icons">view_day</div>
+            </button>
+            <div class="queuename">Queue / <span class="currentname">Ashton Lind</span></div>
+          </div>
+        </div>
+        <div class="topnavunder">
+          <div class="metabtn">3 Selected</div>
+          <div icon="call_received" class="metabtn">Take</div>
+          <div icon="keyboard_return" class="metabtn">Join</div>
+          <div icon="keyboard_tab" class="metabtn">Assign</div>
+          <div icon="call_merge" class="metabtn">Merge</div>
+          <div icon="call_split" class="metabtn">Split</div>
+        </div>
+        <div class="sidecont">
+          <div class="listitmcont">
+            <div class="listitm red checked">
+              <div class="statushv"></div>
+              <div class="status"></div>
+              <div class="text">
+                <div class="title">This is the job's title!</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="comment" class="meta">1</div>
+                  <div icon="attach_file" class="meta">2</div>
+                  <div icon="person_outline" class="meta">The Owner</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-repeat="i in [{n:1,s:false,o:true},{n:2,s:false,o:false},{n:3,s:false,o:false},{n:4,s:false,o:false}]" ng-class="{open : i.o}" class="listitmcont">
+            <div ng-class="{checked : i.s}" class="listitm red">
+              <div ng-click="i.s = !i.s" class="statushv"></div>
+              <div ng-click="i.s = !i.s" class="status"></div>
+              <div ng-click="i.o = !i.o" class="text">
+                <div class="title">This is the job's title that describes an issue!</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="comment" class="meta">1</div>
+                  <div icon="attach_file" class="meta">2</div>
+                  <div icon="person_outline" class="meta">The Owner</div>
+                </div>
+              </div>
+            </div>
+            <div class="metabtns">
+              <div icon="call_received" class="metabtn">Take</div>
+              <div icon="keyboard_return" class="metabtn">Join</div>
+              <div icon="keyboard_tab" class="metabtn">Assign</div>
+              <div icon="map" class="metabtn">Locate</div>
+              <div icon="call_merge" class="metabtn">Merge</div>
+              <div icon="call_split" class="metabtn">Split</div>
+            </div>
+            <div class="respcont">
+              <div class="response usr">
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius euismod venenatis. Nullam consectetur eget augue non ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris feugiat pellentesque molestie. Aliquam erat volutpat. Aenean vulputate tellus at eleifend faucibus. Aenean ornare leo nec efficitur commodo. Curabitur nisi massa, suscipit eu urna id, placerat cursus est. Nullam dapibus ut lectus et euismod. Vivamus vulputate, enim sed ultricies molestie.</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="email" class="meta">Via Email</div>
+                  <div class="user">Old mate</div>
+                </div>
+              </div>
+              <div class="usrph"><img src="https://randomuser.me/api/portraits/men/41.jpg"></div>
+            </div>
+            <div class="respcont">
+              <div class="response stat">
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                </div>
+                <div class="text">This is a status change</div>
+              </div>
+              <div class="usrph"></div>
+            </div>
+            <div class="respcont">
+              <div class="response usr attach">
+                <div class="text">This is some text about an attachment</div>
+                <div class="metarow">
+                  <div icon="access_time" class="meta">2 hours ago</div>
+                  <div icon="email" class="meta">Via Email</div>
+                  <div class="user">Old mate</div>
+                </div>
+              </div>
+              <div class="usrph"><img src="https://randomuser.me/api/portraits/men/41.jpg"></div>
+            </div>
+            <div class="contcont">
+              <div class="createresponse">
+                <textarea placeholder="Add your response here"></textarea>
+                <div class="createresponsebuttons">
+                  <button icon="comment" class="btn blu icon">Send Response</button>
+                  <button class="dark iconbtn">
+                    <div class="material-icons">attach_file</div>
+                  </button>
+                  <button class="dark iconbtn">
+                    <div class="material-icons">contacts</div>
+                  </button>
+                  <button class="dark iconbtn">
+                    <div class="material-icons">visibility_off</div>
+                  </button>
+                  <button class="dark iconbtn">@</button>
+                </div>
+              </div>
+            </div>
+            <div class="contcont">
+              <button icon="comment" class="btn blu icon">Add Response</button>
+              <button icon="attach_file" class="btn icon">Attach File</button>
+            </div>
+          </div>
+          <div class="listitmcont">
+            <div class="listitm">
+              <div class="statushv"></div>
+              <div class="status"></div>
+              <div class="text">
+                <div class="title">This is the job's title!</div>
+                <div class="metarow">
+                  <div class="meta time">2 hours ago</div>
+                  <div class="meta resp">1</div>
+                  <div class="meta attach">2</div>
+                  <div class="meta own">The Owner</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="listitmcont">
+            <div class="listitm dark">
+              <div class="statushv"></div>
+              <div class="status"></div>
+            </div>
+          </div>
+          <div class="listitmcont">
+            <div class="listitm yelw checked">
+              <div class="statushv"></div>
+              <div class="status"></div>
+            </div>
+          </div>
+          <div class="listitmcont"> 
+            <div class="listitm">
+              <div class="statushv"></div>
+              <div class="status"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

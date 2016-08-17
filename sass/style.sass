@@ -1,0 +1,670 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700)
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons)
+
+$navwidth: 6rem
+$colpad: 1.5rem
+$itemhight: 4.5rem
+
+$breakpoint: 750px
+
+$dark: #34314c
+$blu: #47b8e0
+$red: #ff7473
+$yelw: #ffc952
+$light: #FFF
+$mainbg: #EEE
+$gray: #F4F4F4
+
+*
+  box-sizing: border-box
+
+.material-icons
+    font-family: 'Material Icons'
+    font-weight: normal
+    font-style: normal
+    font-size: inherit
+    line-height: inherit
+    position: absolute
+    display: inline-block
+    width: 1em
+    height: 1em
+    line-height: 1
+    text-transform: none
+    letter-spacing: normal
+    word-wrap: normal
+    white-space: nowrap
+    direction: ltr
+    -webkit-font-smoothing: antialiased
+    text-rendering: optimizeLegibility
+    -moz-osx-font-smoothing: grayscale
+    font-feature-settings: 'liga'
+    box-sizing: border-box
+
+body
+  background-color: $mainbg
+  height: 100vh
+  font: 400 0.875rem/1.5 "Open Sans", sans-serif
+  color: $dark
+  margin: 0
+
+button
+  color: $dark
+  background-color: $gray
+  border-color: $gray
+  border-radius: $colpad / 4
+  border-style: solid
+  cursor: pointer
+  outline: none
+  transition: all 0.2s ease-in-out
+  margin-right: $colpad / 2
+  &.btn
+    padding-left: $colpad
+    padding-right: $colpad
+    padding-top: $colpad / 1.5
+    padding-bottom: $colpad / 1.5
+    text-transform: uppercase
+    font-weight: bold
+    .material-icons
+      font-size: 1rem
+      line-height: 1rem
+      position: relative
+  &.iconbtn
+    padding: $colpad / 2.5
+    .material-icons
+      font-size: 1.5rem
+      line-height: 1.5rem
+      position: relative
+  &:active
+    border-color: darken($gray, 20%)
+  &.blu
+    background-color: $blu
+    border-color: $blu
+    color: $light
+    &:active
+      border-color: darken($blu, 20%)
+  &.dark
+    background-color: $dark
+    border-color: $dark
+    color: $light
+    &:active
+      border-color: lighten($dark, 40%)
+  &.yelw
+    background-color: $yelw
+    border-color: $yelw
+    color: $light
+    &:active
+      border-color: darken($yelw, 20%)
+  &:hover
+    box-shadow: $colpad / 10 $colpad / 10 $colpad / 1.5 0 rgba(0,0,0,0.3)
+  &:active
+    box-shadow: none
+  &.icon
+    padding-right: $colpad + 1.5rem
+    &::after
+      @extend .material-icons
+      width: 1.5rem
+      text-align: right
+      font-size: 1.5em
+      content: attr(icon)
+
+.maincont
+  display: flex
+  height: 100%
+
+.leftside, .rightside
+  width: 50%
+  display: flex
+  flex-direction: column
+  flex: 1
+.leftside
+  @media screen and (max-width: $breakpoint)
+    display: none
+.rightside
+  & > .topnav > .topnavcont
+    flex-direction: row-reverse
+    & > .queuename
+      text-align: left
+
+.sidecont
+  padding-left: $colpad
+  padding-right: ($colpad / 4) * 3
+  padding-top: ($colpad / 4) * 3
+  padding-bottom: ($colpad / 4) * 3
+  margin-top: $colpad / 4
+  margin-right: $colpad / 4
+  margin-bottom: $colpad / 4
+  height: 100%
+  overflow-y: auto
+  scrollbar-face-color: $dark
+  scrollbar-track-color: rgba(0,0,0,0)
+  &::-webkit-scrollbar
+    width: 0.5em
+    height: 0.5em
+  &::-webkit-scrollbar-thumb
+    background: $dark
+    border-radius: 0.25em
+  &::-webkit-scrollbar-track
+    background: rgba(0,0,0,0)
+
+.createresponse
+  border-radius: $colpad / 4
+  background-color: $gray
+  padding: $colpad / 1.5
+  textarea
+    width: 100%
+    height: $itemhight * 1.5
+    border-radius: $colpad / 4
+    font-size: 1em
+    resize: vertical
+    background-color: inherit
+    outline: none
+    border: none
+  .createresponsebuttons
+    margin-top: $colpad / 2
+    display: flex
+    justify-content: space-between
+    background-color: $dark
+    border-radius: $colpad
+    padding: 0 $colpad
+    button
+      border-radius: 0
+    button.iconbtn
+      height: $colpad * 2
+      width: $colpad * 2
+      font-size: 1.4em
+      line-height: 1.4rem
+      float: right
+      .material-icons
+        font-size: inherit
+
+
+.searchbar
+  width: 100%
+  position: relative
+  input
+    background-color: rgba($light, 0.2)
+    border-radius: $colpad / 4
+    border-style: none
+    padding: $colpad / 2 $colpad * 2
+    outline: none
+    font-size: 1.3em
+    width: inherit
+    box-shadow: none
+    transition: all 0.2s ease-in-out
+    color: rgba($dark, 0.7)
+    &::placeholder
+      color: $light
+    &:active, &:focus
+      background-color: $light
+      box-shadow: 0 0 $colpad 0 rgba(0,0,0,0.17)
+    &:active ~ .searchicon, &:focus ~ .searchicon
+      color: $dark
+  .searchicon
+    transition: color 0.2s ease-in-out
+    position: absolute
+    left: $colpad / 2
+    top: 0
+    @extend .material-icons
+    font-size: 2em
+    line-height: 1.7em
+    color: $light
+
+
+.listitmcont
+  margin-bottom: $colpad / 2
+  box-shadow: none
+  max-height: $itemhight
+  transition: all 0.3s ease-in-out
+  overflow: hidden
+  transform: translateZ(0) // vv Dumb hack due to overflow hidden missing some child elements in some browsers on the borders - https://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/
+  margin-top: 0
+  .contcont
+    padding: $colpad
+    padding-bottom: 0
+  &.open
+    margin-top: $colpad
+    margin-bottom: $colpad
+    background-color: $light
+    max-height: 100rem
+    border-radius: $colpad / 2
+    box-shadow: 0 0 $colpad 0 rgba(0,0,0,0.17)
+    padding-bottom: $colpad
+  &.open > .listitm > .status
+    width: 110%
+    border-top-right-radius: $itemhight / 2
+    border-bottom-right-radius: $itemhight / 2
+  &.open > .listitm > .text
+    color: $light
+  &.open > .listitm > .text > .metarow
+    color: rgba($light, 0.5)
+  &.open > .listitm
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
+  &.open > .metabtns
+    max-height: $colpad * 2
+    opacity: 1
+    box-shadow: 0 5px 24px 0 rgba(0,0,0,0.2)
+
+.respcont
+  display: flex
+  .usrph
+    flex: 0 1 $itemhight * 1.2
+    padding: $colpad / 1.5
+    display: inline-block
+    img
+      width: 100%
+      height: 100%
+      border-radius: 50%
+  .response
+    background-color: $gray
+    padding: $colpad / 2
+    padding-left: $colpad / 1.5
+    padding-right: $colpad / 1.5
+    margin-top: $colpad / 2
+    margin-left: $colpad
+    margin-bottom: 0
+    border-radius: $colpad / 4
+    position: relative
+    flex: 1 1
+    display: flex
+    flex-wrap: wrap
+    .metarow
+      font-size: 0.75em
+      line-height: $colpad
+    &.stat
+      background-color: $dark
+      color: $light
+      .text
+        flex: 1
+        text-align: center
+        text-transform: uppercase
+        font-weight: bold
+    &.usr
+      &.attach
+        padding-left: 30%
+        &::before
+          content: ""
+          position: absolute
+          left: 0
+          top: 0
+          background: url(https://i.ytimg.com/vi/D--KaaDijPU/hqdefault.jpg?custom=true&w=196&h=110&stc=true&jpg444=true&jpgq=90&sp=68&sigh=4nL92U3MPUsjZvN5-GiJ0k8HuOY)
+          background-repeat: no-repeat
+          background-size: cover
+          background-position: center
+          width: 30%
+          height: 100%
+          border-radius: $colpad / 4
+      .user
+        position: absolute
+        right: $colpad / 1.5
+        bottom: $colpad / 2
+      .metarow
+        margin-top: $colpad / 2
+      & > .metarow
+        order: 0
+      & > .text
+        flex: 0 0 100%
+        text-align: left
+      &::after
+        content: ""
+        position: absolute
+        right: - $colpad / 3.2
+        top: ($itemhight * 1.2 - $colpad / 0.75) / 2 - ($colpad / 3) / 2
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: $colpad / 3 0 $colpad / 3 $colpad / 3
+        border-color: transparent transparent transparent $gray
+
+.metabtns
+  margin-bottom: $colpad
+  background-color: darken($blu, 10%)
+  border-bottom-left-radius: $colpad / 4
+  border-bottom-right-radius: $colpad / 4
+  max-height: 0
+  opacity: 0
+  display: flex
+  justify-content: space-around
+  flex-wrap: wrap
+  box-shadow: none
+  transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out, box-shadow 0.4s ease-in-out
+  padding-left: $colpad / 2
+.metabtn
+  cursor: pointer
+  display: inline-block
+  margin-right: 2em
+  font-weight: bold
+  text-transform: uppercase
+  line-height: $colpad
+  color: $light
+  position: relative
+  transition: color 0.1s ease-in-out
+  &:hover
+    color: rgba($light, 0.6)
+  &:after
+    padding-left: $colpad / 6
+    @extend .material-icons
+    font-size: 1.2em
+    line-height: inherit
+    content: attr(icon)
+
+.metarow
+  font-weight: bold
+  text-transform: uppercase
+  transition: color 0.3s ease-in-out
+  .user
+    font-size: 1rem
+    float: right
+  .meta
+    display: inline-block
+    margin-right: 2em
+    position: relative
+    &:after
+      padding-left: $colpad / 4
+      @extend .material-icons
+      font-size: 1em
+      line-height: inherit
+      content: attr(icon)
+
+.listitm
+  width: 100%
+  height: $itemhight
+  background-color: $light
+  transition: border-radius 0.2s ease-in-out
+  border-radius: $colpad / 2
+  position: relative
+  overflow: hidden
+  cursor: pointer
+  .metarow
+    margin-left: $colpad / 2
+    color: $blu
+  .text
+    z-index: 10
+    height: $itemhight
+    left: $colpad
+    width: 100%
+    padding-right: $colpad * 1.5
+    position: absolute
+  .metarow
+    line-height: 1.5rem
+  .title
+     margin-left: $colpad / 2
+     margin-top: $colpad / 2.5
+     font-size: 1.3rem
+     height: 1.8rem
+     overflow: hidden
+     white-space: nowrap
+     text-overflow: ellipsis
+     padding-right: $colpad / 2
+  &.dark > .status, &.dark > .statushv
+    background-color: $dark
+  &.dark ~ .metabtns
+    background-color: darken($dark, 10%)
+  &.yelw > .status, &.yelw > .statushv
+    background-color: $yelw
+  &.yelw ~ .metabtns
+    background-color: darken($yelw, 10%)
+  &.red > .status, &.red > .statushv
+    background-color: $red
+  &.red  ~ .metabtns
+    background-color: darken($red, 5%)
+  &.checked > .status:hover:before, &.checked > .status:before, &.checked > .statushv:hover + .status:before, &.checked > .statushv + .status:before
+    content: "radio_button_checked"
+    opacity: 1
+  .status
+    content: ""
+    position: absolute
+    width: $colpad / 2
+    height: 100%
+    background: $blu
+    border-top-right-radius: 0%
+    border-bottom-right-radius: 0%
+    transition: all 0.5s cubic-bezier(0.42, 0, 0.22, 1.18)
+    &::before
+      transition: opacity 0.2s ease-in-out
+      color: $light
+      margin-left: $colpad / 4
+      @extend .material-icons
+      line-height: $itemhight
+      vertical-align: middle
+      content: "radio_button_unchecked"
+      opacity: 0
+    &:hover::before
+      opacity: 1
+  .statushv
+    position: absolute
+    left: -($colpad / 2)
+    height: 150%
+    top: -25%
+    width: $colpad
+    border-radius: 50%
+    background: $blu
+    transition: all 0.2s cubic-bezier(0.42, 0, 0.22, 1.18)
+    &:hover + .status::before
+      opacity: 1
+  &:hover > .statushv, &.checked > .statushv
+    width: $colpad * 1.5
+
+.topnav
+  width: 100%
+  flex: 0 0 $navwidth
+  background-color: $blu
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.15)
+  vertical-align: middle
+  display: flex
+  position: relative
+.topnavcont
+  position: absolute
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  padding: $colpad / 2 $colpad
+.topnavunder
+  max-height: $colpad * 2
+  flex: 0 0
+  display: flex
+  justify-content: space-around
+  width: 100%
+  padding: $colpad / 2 $colpad
+  background-color: darken($blu, 5%)
+.queuename
+  flex: 1
+  text-align: right
+  text-transform: uppercase
+  font-weight: bold
+  font-size: 1.2em
+  line-height: 1.2em
+  color: darken($blu, 20%)
+  .currentname
+    color: $light
+
+// Circle Nav buttons
+.navcol
+  background-color: #fff
+  flex: 0 0 $navwidth
+  height: 100%
+  padding-bottom: $colpad
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.15)
+  position: relative
+  z-index: 10
+  overflow: hidden
+  .navlogo
+    height: $navwidth
+    line-height: $navwidth
+    width: 100%
+    text-align: center
+    color: $blu
+    margin-bottom: $colpad / 2
+  .navhead
+    width: $navwidth
+    text-align: center
+    font-weight: bold
+    margin-bottom: $colpad / 3
+  .navitem
+    height: $navwidth - $colpad
+    width: $navwidth
+    position: relative
+    margin-bottom: $colpad / 1.5
+    &.photo
+      height: $navwidth - $colpad
+      vertical-align: middle
+      width: $navwidth - $colpad
+      margin-left: $colpad / 2
+      border-radius: 50%
+      overflow: hidden
+      img
+        width: 100%
+        height: 100%
+      .photoover
+        position: absolute
+        width: 100%
+        height: 100%
+        border-radius: 50%
+        background-color: rgba(0,0,0,0)
+        opacity: 0
+        transition: all 0.3s ease-in-out
+        .usrset, .logout
+          width: 100%
+          height: 50%
+          text-align: center
+          color: #FFF
+          cursor: pointer
+          line-height: ($navwidth - $colpad) / 2
+        &:hover
+          background-color: rgba($dark, .7)
+          opacity: 1
+    .counter
+      width: ($navwidth / 4)
+      height: ($navwidth / 4)
+      line-height: ($navwidth / 4)
+      border-radius: ($navwidth / 4) / 2
+      font-size: ($navwidth / 7)
+      font-weight: bold
+      color: $light
+      position: absolute
+      z-index: 1
+      top: - $colpad / 6
+      left: $colpad / 3
+      background-color: $red
+      text-align: center
+      transition: all 0.1s ease-in-out
+    &.activel > .counter, &.activer > .counter, &:hover > .counter
+      opacity: 0
+    &.activel > .navr
+      margin-left: 0 !important
+      right: 0 !important
+      width: $colpad / 2
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+      background-color: $dark
+    &.activel > .navl
+      margin-left: 0 !important
+      left: 0 !important
+      width: $navwidth - $colpad
+      border-bottom-left-radius: 0
+      border-top-left-radius: 0
+      border-top-right-radius: $colpad / 2
+      border-bottom-right-radius: $colpad / 2
+      background-color: $blu
+    &.activel > .text
+      left: 0
+    &.activer > .navr
+      margin-left: 0 !important
+      right: 0 !important
+      width: $navwidth - $colpad
+      border-bottom-right-radius: 0
+      border-top-right-radius: 0
+      border-top-left-radius: $colpad / 2
+      border-bottom-left-radius: $colpad / 2
+      background-color: $blu
+    &.activer > .navl
+      margin-left: 0 !important
+      left: 0 !important
+      width: $colpad / 2
+      border-top-left-radius: 0
+      border-bottom-left-radius: 0
+    &.activer > .text,
+      left: $colpad
+    .nav
+      border-radius: ($navwidth - $colpad) / 2
+      width: $navwidth - $colpad
+      height: $navwidth - $colpad
+      background-color: $dark
+      transition: all 0.2s cubic-bezier(0.42, 0, 0.22, 1.18)
+      position: absolute
+      top: 0
+    .navr
+      right: $colpad / 2
+    .navl
+      left: $colpad / 2
+    .over
+      position: relative
+      display: inline-block
+      height: $navwidth - $colpad
+      width: 50%
+      z-index: 10
+      cursor: pointer
+    .overl
+      @media screen and (max-width: $breakpoint)
+        width: 0
+      float: left
+      &:hover ~ .navr
+        margin-left: 0 !important
+        right: 0 !important
+        width: $colpad / 2
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+        background-color: $dark
+      &:hover ~ .navl
+        margin-left: 0 !important
+        left: 0 !important
+        width: $navwidth - $colpad
+        border-bottom-left-radius: 0
+        border-top-left-radius: 0
+        border-top-right-radius: $colpad / 2
+        border-bottom-right-radius: $colpad / 2
+        background-color: $blu
+      &:hover ~ .text
+        left: 0
+    .overr
+      @media screen and (max-width: $breakpoint)
+        width: 100%
+      &:hover ~ .navr
+        margin-left: 0 !important
+        right: 0 !important
+        width: $navwidth - $colpad
+        border-bottom-right-radius: 0
+        border-top-right-radius: 0
+        border-top-left-radius: $colpad / 2
+        border-bottom-left-radius: $colpad / 2
+        background-color: $blu
+      &:hover ~ .navl
+        margin-left: 0 !important
+        left: 0 !important
+        width: $colpad / 2
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+        background-color: $dark
+      &:hover ~ .text,
+        left: $colpad
+    .text
+      position: absolute
+      color: $light
+      transition: left 0.2s ease-in-out
+      width: $navwidth - $colpad
+      text-align: center
+      font-weight: bold
+      font-size: $navwidth / 4
+      top: 0
+      line-height: $navwidth - $colpad
+      left: $colpad / 2
+      &.icon
+        &::before
+          @extend .material-icons
+          position: absolute
+          left: 0
+          line-height: $navwidth - $colpad
+          width: $navwidth - $colpad
+          font-size: $navwidth / 3
+          content: attr(icon)

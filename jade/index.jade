@@ -1,0 +1,309 @@
+doctype html
+html(lang="en")
+  head
+    link(rel="stylesheet",href="/css/style.css")
+    link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
+    script(src="/app/app.js")
+  body(ng-app, ng-init="opening = true")
+    .maincont
+      .leftside
+        .topnav
+          .topnavcont
+            button.iconbtn.blu
+              .material-icons filter_list
+            button.iconbtn.blu
+              .material-icons vertical_align_center
+            button.iconbtn.blu
+              .material-icons view_day
+            .queuename Queue / 
+              span.currentname Ashton Lind
+        .topnavunder
+          .metabtn 3 Selected
+          .metabtn(icon="call_received") Take
+          .metabtn(icon="keyboard_return") Join
+          .metabtn(icon="keyboard_tab") Assign
+          .metabtn(icon="call_merge") Merge
+          .metabtn(icon="call_split") Split
+          
+        .sidecont
+        
+          .listitmcont
+            .listitm.red.checked
+              .statushv
+              .status
+              .text
+                .title This is the job's title!
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="comment") 1
+                  .meta(icon="attach_file") 2
+                  .meta(icon="person_outline") The Owner
+              
+          .listitmcont(ng-repeat="i in [{n:1,s:false,o:true},{n:2,s:false,o:false},{n:3,s:false,o:false},{n:4,s:false,o:false}]", ng-class="{open : i.o}")
+            .listitm.red(ng-class="{checked : i.s}")
+              .statushv(ng-click="i.s = !i.s")
+              .status(ng-click="i.s = !i.s")
+              .text(ng-click="i.o = !i.o")
+                .title This is the job's title that describes an issue!
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="comment") 1
+                  .meta(icon="attach_file") 2
+                  .meta(icon="person_outline") The Owner
+            .metabtns
+              .metabtn(icon="call_received") Take
+              .metabtn(icon="keyboard_return") Join
+              .metabtn(icon="keyboard_tab") Assign
+              .metabtn(icon="map") Locate
+              .metabtn(icon="call_merge") Merge
+              .metabtn(icon="call_split") Split
+            .respcont
+              .response.usr
+                .text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius euismod venenatis. Nullam consectetur eget augue non ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris feugiat pellentesque molestie. Aliquam erat volutpat. Aenean vulputate tellus at eleifend faucibus. Aenean ornare leo nec efficitur commodo. Curabitur nisi massa, suscipit eu urna id, placerat cursus est. Nullam dapibus ut lectus et euismod. Vivamus vulputate, enim sed ultricies molestie.
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="email") Via Email
+                  .user Old mate
+              .usrph
+                img(src="https://randomuser.me/api/portraits/men/41.jpg")
+            .respcont
+              .response.stat
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                .text This is a status change
+              .usrph
+            .respcont
+              .response.usr.attach
+                .text This is some text about an attachment
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="email") Via Email
+                  .user Old mate
+              .usrph
+                img(src="https://randomuser.me/api/portraits/men/41.jpg")
+            .contcont
+              .createresponse
+                textarea(placeholder="Add your response here")
+                .createresponsebuttons
+                  button.btn.blu.icon(icon="comment") Send Response
+                  button.dark.iconbtn
+                    .material-icons attach_file
+                  button.dark.iconbtn
+                    .material-icons contacts
+                  button.dark.iconbtn
+                    .material-icons visibility_off
+                  button.dark.iconbtn @
+            
+            .contcont
+              button.btn.blu.icon(icon="comment") Add Response
+              button.btn.icon(icon="attach_file") Attach File
+              
+                
+          .listitmcont
+            .listitm
+              .statushv
+              .status
+              .text
+                .title This is the job's title!
+                .metarow
+                  .meta.time 2 hours ago
+                  .meta.resp 1
+                  .meta.attach 2
+                  .meta.own The Owner
+                
+          .listitmcont
+            .listitm.dark
+              .statushv
+              .status
+          .listitmcont
+            .listitm.yelw.checked
+              .statushv
+              .status
+          .listitmcont  
+            .listitm
+              .statushv
+              .status
+        
+      .navcol
+        .navlogo.fa.fa-rocket.fa-4x
+      
+        .navitem.photo
+          .photoover
+            .usrset.fa.fa-cog.fa-2x
+            .logout.fa.fa-sign-out.fa-2x
+          img(src="https://randomuser.me/api/portraits/men/41.jpg")
+      
+        .navitem
+          .over.overl
+          .over.overr
+          .nav.navr
+          .nav.navl
+          .text.icon(icon="search")
+        
+        .navitem
+          .over.overl
+          .over.overr
+          .nav.navr
+          .nav.navl
+          .text.icon(icon="notifications")
+      
+        .navhead Queues
+        
+        .navitem
+          .over.overl
+          .over.overr
+          .counter 22
+          .nav.navr
+          .nav.navl
+          .text NA
+        
+        .navitem.activer
+          .over.overl
+          .over.overr
+          .counter 2
+          .nav.navr
+          .nav.navl
+          .text AL
+          
+        .navitem.activel
+          .over.overl
+          .over.overr
+          .counter 2
+          .nav.navr
+          .nav.navl
+          .text GG
+
+        .navitem
+          .over.overl
+          .over.overr
+          .counter 1
+          .nav.navr
+          .nav.navl
+          .text NA
+          
+        .navitem
+          .over.overl
+          .over.overr
+          .counter 5
+          .nav.navr
+          .nav.navl
+          .text NA
+          
+      .rightside
+        .topnav
+          .topnavcont
+            button.iconbtn.blu
+              .material-icons filter_list
+            button.iconbtn.blu
+              .material-icons vertical_align_center
+            button.iconbtn.blu
+              .material-icons view_day
+            .queuename Queue / 
+              span.currentname Ashton Lind
+        .topnavunder
+          .metabtn 3 Selected
+          .metabtn(icon="call_received") Take
+          .metabtn(icon="keyboard_return") Join
+          .metabtn(icon="keyboard_tab") Assign
+          .metabtn(icon="call_merge") Merge
+          .metabtn(icon="call_split") Split
+          
+        .sidecont
+        
+          .listitmcont
+            .listitm.red.checked
+              .statushv
+              .status
+              .text
+                .title This is the job's title!
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="comment") 1
+                  .meta(icon="attach_file") 2
+                  .meta(icon="person_outline") The Owner
+              
+          .listitmcont(ng-repeat="i in [{n:1,s:false,o:true},{n:2,s:false,o:false},{n:3,s:false,o:false},{n:4,s:false,o:false}]", ng-class="{open : i.o}")
+            .listitm.red(ng-class="{checked : i.s}")
+              .statushv(ng-click="i.s = !i.s")
+              .status(ng-click="i.s = !i.s")
+              .text(ng-click="i.o = !i.o")
+                .title This is the job's title that describes an issue!
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="comment") 1
+                  .meta(icon="attach_file") 2
+                  .meta(icon="person_outline") The Owner
+            .metabtns
+              .metabtn(icon="call_received") Take
+              .metabtn(icon="keyboard_return") Join
+              .metabtn(icon="keyboard_tab") Assign
+              .metabtn(icon="map") Locate
+              .metabtn(icon="call_merge") Merge
+              .metabtn(icon="call_split") Split
+            .respcont
+              .response.usr
+                .text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius euismod venenatis. Nullam consectetur eget augue non ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris feugiat pellentesque molestie. Aliquam erat volutpat. Aenean vulputate tellus at eleifend faucibus. Aenean ornare leo nec efficitur commodo. Curabitur nisi massa, suscipit eu urna id, placerat cursus est. Nullam dapibus ut lectus et euismod. Vivamus vulputate, enim sed ultricies molestie.
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="email") Via Email
+                  .user Old mate
+              .usrph
+                img(src="https://randomuser.me/api/portraits/men/41.jpg")
+            .respcont
+              .response.stat
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                .text This is a status change
+              .usrph
+            .respcont
+              .response.usr.attach
+                .text This is some text about an attachment
+                .metarow
+                  .meta(icon="access_time") 2 hours ago
+                  .meta(icon="email") Via Email
+                  .user Old mate
+              .usrph
+                img(src="https://randomuser.me/api/portraits/men/41.jpg")
+            .contcont
+              .createresponse
+                textarea(placeholder="Add your response here")
+                .createresponsebuttons
+                  button.btn.blu.icon(icon="comment") Send Response
+                  button.dark.iconbtn
+                    .material-icons attach_file
+                  button.dark.iconbtn
+                    .material-icons contacts
+                  button.dark.iconbtn
+                    .material-icons visibility_off
+                  button.dark.iconbtn @
+            
+            .contcont
+              button.btn.blu.icon(icon="comment") Add Response
+              button.btn.icon(icon="attach_file") Attach File
+              
+                
+          .listitmcont
+            .listitm
+              .statushv
+              .status
+              .text
+                .title This is the job's title!
+                .metarow
+                  .meta.time 2 hours ago
+                  .meta.resp 1
+                  .meta.attach 2
+                  .meta.own The Owner
+                
+          .listitmcont
+            .listitm.dark
+              .statushv
+              .status
+          .listitmcont
+            .listitm.yelw.checked
+              .statushv
+              .status
+          .listitmcont  
+            .listitm
+              .statushv
+              .status
